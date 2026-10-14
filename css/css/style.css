@@ -1,0 +1,513 @@
+K
+KALKAL
+PWA
+Complete Organized Code
+
+⎙
+Copy file
+⌕
+Filter files…
+⌂
+root
+
+<>
+index.html
+162L
+
+{}
+manifest.json
+65L
+
+JS
+sw.js
+93L
+
+Md
+README.md
+109L
+◐
+css
+
+#
+css/style.css
+463L
+◑
+js
+
+JS
+js/data.js
+93L
+
+JS
+js/app.js
+300L
+Deploy checklist
+• Copy all 8 files to repo root
+• Keep css/ and js/ folders
+• Enable Pages → main / root
+• Test manifest + sw.js
+css/style.css
+css
+Copy
+/* ==========================================================================
+   KALKAL - Complete Stylesheet
+   Organized, commented, production-ready
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. VARIABLES & TOKENS
+   -------------------------------------------------------------------------- */
+:root {
+  /* Colors */
+  --bg: #09090B;
+  --bg-elevated: #111113;
+  --surface: #18181B;
+  --surface-2: #202023;
+  --surface-3: #27272A;
+  --border: #27272A;
+  --border-strong: #3F3F46;
+
+  --text: #FAFAFA;
+  --text-soft: #A1A1AA;
+  --text-faint: #71717A;
+
+  --accent: #FF2D55;
+  --accent-2: #FFCC02;
+  --accent-hover: #FF445F;
+
+  /* Typography */
+  --font-sans: 'Geist', ui-sans-system, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
+
+  /* Layout */
+  --nav-h: 64px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 999px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET & BASE
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+img, video { display: block; max-width: 100%; }
+
+.hidden { display: none !important; }
+
+/* --------------------------------------------------------------------------
+   3. NAVIGATION (Landing)
+   -------------------------------------------------------------------------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(20px);
+  background: color-mix(in srgb, var(--bg) 80%, transparent);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav__inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  height: var(--nav-h);
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.nav__logo-mark {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  background: var(--text);
+  color: var(--bg);
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.nav__actions { display: flex; gap: 12px; }
+
+/* --------------------------------------------------------------------------
+   4. BUTTONS
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  border: 1px solid transparent;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s var(--ease-out);
+  white-space: nowrap;
+}
+
+.btn--primary {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.btn--primary:hover {
+  background: var(--text-soft);
+  transform: translateY(-1px);
+}
+
+.btn--ghost {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.btn--lg {
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   5. HERO (Landing)
+   -------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  overflow: clip;
+  padding: 80px 24px 40px;
+}
+
+.hero__glow {
+  position: absolute;
+  inset: -20% -10% auto -10%;
+  height: 70%;
+  background: radial-gradient(60% 60% at 50% 0%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 70%);
+  pointer-events: none;
+}
+
+.hero__content {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  gap: 32px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  color: var(--text-soft);
+  letter-spacing: 0.02em;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background: #22C55E;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px color-mix(in srgb, #22C55E 20%, transparent);
+}
+
+.hero__title {
+  font-size: clamp(40px, 8vw, 84px);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+}
+
+.hero__title-accent {
+  color: var(--text-soft);
+  font-weight: 400;
+  font-style: italic;
+}
+
+.hero__subtitle {
+  max-width: 520px;
+  font-size: 18px;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+
+.hero__hint {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--text-faint);
+}
+
+/* Phone mockup */
+.hero__phone { margin-top: 24px; }
+
+.phone-frame {
+  width: min(320px, 80vw);
+  aspect-ratio: 9 / 16;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 36px;
+  padding: 10px;
+  box-shadow: 0 30px 80px -20px rgba(0,0,0,0.8);
+}
+
+.phone-frame__notch {
+  width: 80px;
+  height: 20px;
+  background: var(--bg);
+  border-radius: var(--radius-full);
+  margin: 0 auto 10px;
+}
+
+.phone-frame__screen {
+  height: calc(100% - 30px);
+  background: linear-gradient(180deg, #1A1A1D, #0F0F10);
+  border-radius: 24px;
+  padding: 16px;
+  display: flex;
+  align-items: end;
+}
+
+/* --------------------------------------------------------------------------
+   6. FEATURES
+   -------------------------------------------------------------------------- */
+.features { padding: 80px 24px; max-width: 1120px; margin: 0 auto; }
+
+.section__head { margin-bottom: 32px; }
+.section__head h2 { font-size: 28px; letter-spacing: -0.02em; }
+.section__head p { color: var(--text-soft); margin-top: 6px; }
+
+.features__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition: border-color 0.2s var(--ease-out);
+}
+
+.card:hover { border-color: var(--border-strong); }
+.card__icon { font-size: 20px; margin-bottom: 16px; }
+.card h3 { font-size: 16px; margin-bottom: 8px; }
+.card p { font-size: 14px; color: var(--text-soft); line-height: 1.5; }
+
+/* --------------------------------------------------------------------------
+   7. APP – TikTok style feed
+   -------------------------------------------------------------------------- */
+.app-body {
+  background: #000;
+  overflow: hidden;
+  height: 100dvh;
+}
+
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 30;
+  background: linear-gradient(180deg, rgba(0,0,0,0.8), transparent);
+}
+
+.app-header__left { display: flex; align-items: center; gap: 12px; }
+.app-header__logo { font-weight: 800; letter-spacing: -0.03em; }
+.app-header__live { font-size: 10px; display: flex; gap: 6px; align-items: center; color: var(--text-soft); }
+.live-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: pulse 1.5s infinite; }
+.app-header__right { display: flex; gap: 8px; }
+
+/* Feed – snap scroll */
+.feed {
+  height: 100dvh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+}
+
+.feed::-webkit-scrollbar { display: none; }
+
+.drama-card {
+  position: relative;
+  height: 100dvh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  background: #000;
+  overflow: hidden;
+}
+
+.drama-card__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.drama-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.7) 100%);
+  padding: 80px 16px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.drama-card__meta h2 { font-size: 22px; line-height: 1.1; margin-bottom: 6px; }
+.drama-card__meta p { font-size: 13px; color: var(--text-soft); }
+
+.drama-card__actions {
+  position: absolute;
+  right: 12px;
+  bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  color: white;
+}
+
+.action-btn__circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  transition: transform 0.2s var(--ease-out);
+}
+
+.action-btn:active .action-btn__circle { transform: scale(0.92); }
+.action-btn__label { font-size: 11px; font-weight: 600; }
+
+/* Progress */
+.progress {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255,255,255,0.15);
+  z-index: 40;
+}
+
+.progress__bar {
+  height: 100%;
+  width: 0%;
+  background: var(--text);
+  transition: width 0.1s linear;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 80px;
+  transform: translateX(-50%);
+  background: var(--surface);
+  color: var(--text);
+  padding: 10px 16px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  border: 1px solid var(--border);
+  z-index: 50;
+}
+
+/* --------------------------------------------------------------------------
+   8. FOOTER
+   -------------------------------------------------------------------------- */
+.footer {
+  padding: 40px 24px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--text-faint);
+  font-size: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   9. RESPONSIVE
+   -------------------------------------------------------------------------- */
+@media (max-width: 800px) {
+  .features__grid { grid-template-columns: 1fr; }
+  .hero { padding-top: 48px; }
+}
+
+/* --------------------------------------------------------------------------
+   10. ANIMATIONS
+   -------------------------------------------------------------------------- */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 50%, transparent); }
+  70% { box-shadow: 0 0 0 8px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+@keyframes likePop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
